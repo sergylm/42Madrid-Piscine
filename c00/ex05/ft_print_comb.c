@@ -1,11 +1,25 @@
 #include <unistd.h>
 
-void	print_chars(char i, char j, char k)
+void	print_chars(int i, int j, int k)
 {
-	write(1, &i, 1);
-	write(1, &j, 1);
-	write(1, &k, 1);
-	write(1, ", ", 2);
+	char	ic;
+	char	jc;
+	char	kc;
+
+	ic = (char) i + '0';
+	jc = (char) j + '0';
+	kc = (char) k + '0';
+	if (i == 7 && j == 8 && k == 9)
+	{
+		write(1, "789", 3);
+	}
+	else
+	{
+		write(1, &ic, 1);
+		write(1, &jc, 1);
+		write(1, &kc, 1);
+		write(1, ", ", 2);
+	}
 }
 
 void	ft_print_comb(void)
@@ -15,25 +29,23 @@ void	ft_print_comb(void)
 	int	k;
 
 	i = 0;
-	j = 1;
-	k = 2;
 	while (i <= 7)
 	{
+		j = 1;
 		while (j <= 8)
 		{
-			if (i == j)
-			{
-				continue ;
-			}
+			k = 2;
 			while (k <= 9)
 			{
-				if (i++ == k || j++ == k++)
+				if (i != j && i != k && j != k)
 				{
-					continue ;
+					print_chars(i, j, k);
 				}
-				print_chars((char)i, (char)j, (char)k);
+				k++;
 			}
+			j++;
 		}
+		i++;
 	}
 }
 
