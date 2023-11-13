@@ -13,7 +13,7 @@ int	ft_str_is_printable(char *str)
 	return (1);
 }
 //int main(){
-//	char *str = "8\339";
+//	char str[] = "8\339";
 //	int result_ft = ft_str_is_printable(str);
 //
 //	printf("result con ft:  %d\n%s", result_ft, str);

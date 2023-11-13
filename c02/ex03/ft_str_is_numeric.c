@@ -13,7 +13,7 @@ int	ft_str_is_numeric(char *str)
 	return (1);
 }
 //int main(){
-//	char *str = "1234";
+//	char str[] = "1234";
 //	int result_ft = ft_str_is_numeric(str);
 //
 //	printf("result con ft:  %d\n", result_ft);

@@ -13,7 +13,7 @@ int	ft_str_is_lowercase(char *str)
 	return (1);
 }
 //int main(){
-//	char *str = "holaaAAA";
+//	char str[] = "holaaAAA";
 //	int result_ft = ft_str_is_lowercase(str);
 //
 //	printf("result con ft:  %d\n", result_ft);
