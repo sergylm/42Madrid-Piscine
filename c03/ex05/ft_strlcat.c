@@ -15,26 +15,23 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	j;
-	unsigned int	len_dest;
 	unsigned int	result;
 
 	i = length(dest);
 	j = length(src);
-	len_dest = i;
 	result = i + j;
 	j = 0;
-	while (src[j] && size-- - len_dest - 1)
+	while (src[j] && size-- - i - 1)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i] = '\0';
+	dest[i + j] = '\0';
 	return (result);
 }
 //int main(){
 //	char dest1[10] = "hola", dest2[10] = "hola";
-//	char src[10] = " ad";
+//	char src[10] = " adios";
 //	unsigned int result_ft, result_strlcat;
 //
 //	printf("dest: \"%s\"\tsrc: \"%s\"\n", dest1, src);
