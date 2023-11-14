@@ -26,16 +26,14 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (len);
 }
 //int main(){
-//	char dest1[] = "test1", dest2[] = "test1", src[] = "1111111";
+//	char dest1[6] = "test1", dest2[6] = "test1", src[20] = "1234567890";
 //	int result_ft, result_strlcpy;
-//	unsigned int len = length(dest1);
-//	unsigned int len2 = strlen(dest2);
 //
 //	printf("dst:\"%s\"\nsrc:\"%s\"\n", dest1, src);
-//	result_ft = ft_strlcpy(dest1, src, len + 1);
-//	result_strlcpy = strlcpy(dest2, src, len2 + 1);
-//	printf("resul con ft_strncpy return: \"");
-//	printf("%i\"  string: \"%s\"\n", result_ft, dest1);
-//	printf("resul con strlcpy    return: \"");
-//	printf("%i\"  string: \"%s\"\n", result_strlcpy, dest2);
+//	result_ft = ft_strlcpy(dest1, src, sizeof(dest1));
+//	result_strlcpy = strlcpy(dest2, src, sizeof(dest2));
+//	printf("resul con ft_strncpy return: ");
+//	printf("%i  string: \"%s\"\n", result_ft, dest1);
+//	printf("resul con strlcpy    return: ");
+//	printf("%i  string: \"%s\"\n", result_strlcpy, dest2);
 //}
