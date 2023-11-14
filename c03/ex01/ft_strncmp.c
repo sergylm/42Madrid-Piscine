@@ -25,3 +25,4 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 //	printf("resul con ft:      %d\n", result_ft);
 //	printf("resul con strncmp: %d\n", result_strncmp);
 //}
+lo mismo que la otra, creo que te lo tumbara pero inténtalo 
