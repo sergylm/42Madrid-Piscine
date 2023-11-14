@@ -1,5 +1,5 @@
 #include <unistd.h>
-//#include <stdio.h>
+
 void	int_to_hex(int i)
 {
 	char	hex;
