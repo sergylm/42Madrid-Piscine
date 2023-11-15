@@ -37,3 +37,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 //	printf("resul con strlcpy    return: ");
 //	printf("%i  string: \"%s\"\n", result_strlcpy, dest2);
 //}
+esta mala está función te lo va a tumbar. pregunta si puedes llamar a las funciones ya 
+implementadas en C sin usar ls tuyas porque veo que usas legth sin usar un ft 
+porque no es tuya y no se si puedes hacer eso 
