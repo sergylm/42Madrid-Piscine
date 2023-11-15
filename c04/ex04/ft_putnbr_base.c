@@ -1,4 +1,4 @@
-//#include <unistd.h>
+#include <unistd.h>
 
 int	check_dupli_simbols(char *str)
 {
