@@ -5,6 +5,10 @@ filetype indent on
 syntax on
 
 inoremap jj <ESC>
-vnoremap ñ <ESC>:'<,'>s!^!//!<enter>
-vnoremap ç <ESC>:'<,'>s!^//!!<enter>
 
+noremap 1 :set rnu!<ENTER>
+
+nnoremap <c-s> :w<ENTER>
+
+vnoremap ñ <ESC>:'<,'>s!^!//!<ENTER>
+vnoremap ç <ESC>:'<,'>s!^//!!<ENTER>
