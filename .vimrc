@@ -10,7 +10,7 @@ noremap 1 :set rnu!<CR>
 
 noremap <c-s> :w<CR>
 
-vnoremap ñ <ESC>:'<,'>s!^!//!<CR>
+"vnoremap ñ <ESC>:'<,'>s!^!//!<CR>
 "vnoremap ç <ESC>:'<,'>s!^//!!<CR>
 
 inoremap { {<CR>}<UP><c-o>$<CR>
