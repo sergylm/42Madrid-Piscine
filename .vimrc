@@ -4,11 +4,11 @@ filetype plugin on
 filetype indent on
 syntax on
 
-inoremap jj <ESC>
+imap jj <ESC>
 
-noremap 1 :set rnu!<CR>
+nmap 1 :set rnu!<CR>
 
-noremap <c-s> :w<CR>
+nmap <c-s> :w<CR>
 
 "vnoremap ñ <ESC>:'<,'>s!^!//!<CR>
 "vnoremap ç <ESC>:'<,'>s!^//!!<CR>
@@ -18,8 +18,7 @@ inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 
-vmap ç :call Toogle_comments()<CR>
-nmap ç :call Toogle_comments()<CR>
+noremap ç :call Toogle_comments()<CR>
 
 command Comment call Toogle_comments()
 
