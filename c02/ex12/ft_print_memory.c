@@ -28,7 +28,7 @@ void	atoh(char *str)
 void	ft_print_memory(void *addr, unsigned int size)
 {
 //	int	i;
-	char	*str = (char *) addr;	
+	char	*str = *addr;	
 	
 	printf("-%s-\n", str);
 	printf("(%p / %ld)\n", str, strlen(str));
@@ -52,13 +52,9 @@ void	ft_print_memory(void *addr, unsigned int size)
 }
 
 int	main(){
-	char test[] = "lol l";
-	char *str;
+	char str[] = "lol l";
 
-	str = &*test;
-
-
-	ft_print_memory(str, 6);
-	printf("\n%p\n", &test);
+	ft_print_memory(&str, 6);
+	printf("\n%p\n", &str);
 //	printf("\n%s\n", &*str);
 }
