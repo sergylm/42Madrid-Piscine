@@ -2,45 +2,43 @@
 #include <stdio.h>
 #include <string.h>
 
-
-void	hex_to_char(void *addr)
+void	hex_to_int(int hex)
 {
-//	char 	*base;
-	int	zeros;
-	char	*str = (char *) addr;
-;
+	char *str = "0123456789abcdef";
 
-//	base = "0123456789abcdef";
-//	*str = 	
-	printf("\n%s----", str);
-	while (*str)
+	if (hex < 16)
+		write(1, &str[hex], 1);
+	else
 	{
-		str++;
-		zeros++;
+		hex_to_int(hex / 16);
+		hex_to_int(hex % 16);
 	}
-	addr -= zeros;
-//	write(1, "0000000000000000", zeros);
-//	write(1, "\n", 1);
-//	write (1, &addr,16 - zeros);
 }
 
-void	print(void *str)
+void	atoh(char *str)
 {
-	write(1, &str, 1);
+	printf("\n--%s--\n", str);
+	while(*str++)
+	{
+		hex_to_int(*str);
+		write(1, " ", 1);
+	}
 }
 
 void	ft_print_memory(void *addr, unsigned int size)
 {
-//	int 	i;
-	char *str = (char *) &addr;
+//	int	i;
+	char	*str = (char *) addr;	
 	
-	printf("\n(%ld)", strlen(str));
+	printf("-%s-\n", str);
+	printf("(%p / %ld)\n", str, strlen(str));
 	
 //	i = 1;
 	while (size--)
 	{
-		write(1, "00000000", 8);
-		printf("\n--%p\n%s\n", str, str);
+//		write(1, "00000000", 8);
+//		printf("\n--%p\n%s\n", str, str);
+		atoh(&*str);
 		str++;
 //		hex_to_char(&addr);
 //		i++;
@@ -54,10 +52,13 @@ void	ft_print_memory(void *addr, unsigned int size)
 }
 
 int	main(){
-	char str[] = "lol l";
+	char test[] = "lol l";
+	char *str;
+
+	str = &*test;
 
 
-	ft_print_memory(&str, 6);
-//	printf("\n%p\n", &str);
+	ft_print_memory(str, 6);
+	printf("\n%p\n", &test);
 //	printf("\n%s\n", &*str);
 }
