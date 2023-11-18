@@ -2,59 +2,116 @@
 #include <stdio.h>
 #include <string.h>
 
-void	hex_to_int(int hex)
+void	ctoi(int value)
 {
-	char *str = "0123456789abcdef";
-
-	if (hex < 16)
-		write(1, &str[hex], 1);
+	char c;
+	if(value < 16)
+	{
+		write(1, "0", 1);
+		if (value < 10)
+			c = '0' + value;
+		else
+			c = 'a' + (value % 10);
+		write(1, &c, 1);
+	}
 	else
 	{
-		hex_to_int(hex / 16);
-		hex_to_int(hex % 16);
+		if (value / 16 < 10)
+			c = '0' + value / 16;
+		else
+			c = 'a' + value / 16 % 10;
+		write(1, &c, 1);
+		if (value % 16 < 10)
+			c = '0' + value % 16;
+		else
+			c = 'a' + value % 16 % 10;
+		write(1, &c, 1);
 	}
 }
 
-void	atoh(char *str)
+void	print_ascii(void *addr, unsigned int size)
 {
-	printf("\n--%s--\n", str);
-	while(*str++)
+	unsigned int i;
+	char *c;
+
+	i = 0;
+	c = addr;
+	while (i++ < size && i <= 16)
 	{
-		hex_to_int(*str);
+		c = addr++;
+		if (c[0] > 31 && c[0] < 127)
+			write(1, c, 1);
+		else
+			write(1, ".", 1);
+	}
+}
+
+void	print_hex(char *addr, unsigned int size)
+{
+	unsigned int i;
+	char *c;
+
+	c = addr;
+	i = 0;
+	while (i < size && i <= 16)
+	{
+		if (i % 2 == 0)
+			write(1, " ", 1);
+		ctoi(c[i]);
+		i++;
+	}
+	while (16 - i != 0)
+	{
+		write(1, "  ", 2);
+		if (i % 2 == 0)
+			write(1, " ", 1);
+		i++;
+	}
+}
+void	print_addr(char *str)
+{
+	int	i = 0;
+//	char	c[8];
+	int ptr;	
+	char c;
+
+//	c = *str;
+//	write(1, &str, 8);
+//	printf("%s", &str);
+//	printf("\n--%s--%p\n",(char *) str, str);
+	ptr = (int) &str;
+	a = (int *) str;
+	while (i < 7){
+		c = a[i++];
+		write(1, &c, 1);
+	}
+}
+void	*ft_print_memory(void *addr, unsigned int size)
+{
+	unsigned int i;
+	write (1, &addr, 8);
+	write (1, "\n", 1);
+	
+	while (i < size)
+	{
+		print_addr(addr);
+//		write(1,"       Address", 12);
+		write(1, ":", 1);
+		print_hex(addr, size - i);
 		write(1, " ", 1);
-	}
-}
-
-void	ft_print_memory(void *addr, unsigned int size)
-{
-//	int	i;
-	char	*str = *addr;	
-	
-	printf("-%s-\n", str);
-	printf("(%p / %ld)\n", str, strlen(str));
-	
-//	i = 1;
-	while (size--)
-	{
-//		write(1, "00000000", 8);
-//		printf("\n--%p\n%s\n", str, str);
-		atoh(&*str);
-		str++;
-//		hex_to_char(&addr);
-//		i++;
-//		while (i++ % 16)
-//		{
-//			print_char(addr++);
-//		}
-//		print_content(addr-16);
+		print_ascii(addr, size - i);
+		write(1, "\n", 1);
+		i += 16;
+		addr += 16;
 
 	}
+	return (addr);
 }
 
 int	main(){
-	char str[] = "lol l";
+	char str[] = "Bonjour les aminches\t\t\tc. est fou. tout.ce qu onpeut faire avec";
+	char aux[] = "Sal por favor";
 
-	ft_print_memory(&str, 6);
-	printf("\n%p\n", &str);
-//	printf("\n%s\n", &*str);
+	ft_print_memory(&aux, sizeof(aux));
+	printf("\n%p\n", &aux);
 }
