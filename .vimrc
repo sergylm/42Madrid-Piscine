@@ -14,6 +14,7 @@ vmap <F1> <ESC><F1><c-v>
 
 " Map CTRL-S to save
 nmap <C-S> :w<CR>
+imap <C-S> <ESC><C-S>i
 
 " Map Command-S to save in MAC
 nmap <D-S> <C-S>
