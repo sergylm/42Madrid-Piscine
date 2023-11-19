@@ -6,7 +6,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	int	i;
 
 	i = 0;
-	while (s1[i] && s2[i] && n--)
+	while ((s1[i] || s2[i]) && n--)
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
@@ -25,4 +25,3 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 //	printf("resul con ft:      %d\n", result_ft);
 //	printf("resul con strncmp: %d\n", result_strncmp);
 //}
-lo mismo que la otra, creo que te lo tumbara pero inténtalo 

@@ -7,6 +7,8 @@ char	*ft_strstr(char *str, char *to_find)
 
 	result = str;
 	aux = to_find;
+	if (!*to_find)
+		return (&*str);
 	while (*str)
 	{
 		if (*str == *aux)
@@ -37,4 +39,3 @@ char	*ft_strstr(char *str, char *to_find)
 //	printf("result con strstr: \"%s\"\n", result_strstr);
 //
 //}
-idem a lo del 00 y 01 creo te lo tumbara 

@@ -5,7 +5,7 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (s1[i] && s2[i])
+	while (s1[i] || s2[i])
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
@@ -23,5 +23,4 @@ int	ft_strcmp(char *s1, char *s2)
 //	printf("resul con ft:     %d\n", result_ft);
 //	printf("resul con strcmp: %d\n", result_strcmp);
 //}
-esto creo que te lo va a tumbar tambien, aun asi intentalo a ver
-si logra pasar la Mouli y si no te lo pasa vuelve a entregar 
+
