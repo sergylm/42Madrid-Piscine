@@ -25,16 +25,76 @@ T_dict_ptr	dict_new(void)
 	return (d);
 }
 
-void	dict_free(T_dict dict)
+void	dict_free(T_dict_ptr dict)
 {
 	int	i;
 
 	i = 0;
-	while (i < dict.len)
+	while (i < dict->len)
 	{
-		free(&dict.entry[i].key);
+		free((char *) dict->entry[i].key);
+		free(dict->entry[i].value);
 		i++;
 	}
-	free(dict.entry);
-	free(&dict);
+	free(dict->entry);
+	free(dict);
+}
+
+int	dict_find_index(T_dict_ptr dict, const char *key)
+{
+	int	i;
+
+	i = 0;
+	while (i < dict->len)
+	{
+		if (!ft_strcmp(dict->entry[i].key, key))
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+void	dict_add(T_dict_ptr dict, const char* key, char *value)
+{
+	int	idx;
+
+	idx = dict_find_index(dict, key);
+	if (idx != -1)
+	{
+		dict->entry[idx].value = value;
+	}
+	dict->entry[dict->len].key = ft_strdup(key);
+	dict->entry[dict->len].value = ft_strdup(value);
+	dict->len++;
+}
+
+void	dict_load(T_dict_ptr dict, char *buffer)
+{
+	char	*key;
+	char	*value;
+	int	nkey;
+	int	nvalue;
+	
+	nkey = 0;
+	nvalue = 0;
+	while (*buffer != '\032')
+	{
+		key = buffer;
+		while (*buffer++ != ':')
+		{
+			nkey++;
+			while (*buffer == ' ')
+				buffer++;
+		}
+		while (*buffer == ' ')
+			buffer++;
+		value = buffer;
+		while (*buffer++ != '\n')
+			nvalue++;
+		dict_add(dict, (const char *) parse_str(key, nkey), parse_str(value, nvalue));
+		printf("%.*s:%.*s\n", nkey, key, nvalue, value);
+		nkey = 0;
+		nvalue = 0;
+	}
+	printf("a");
 }

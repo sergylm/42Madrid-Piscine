@@ -26,7 +26,7 @@ void	ft_select(void)
 	char	new_dict[100];
 
 	print("Choose a dictionary:\n");
-	print("(Introduce a nummber)\n");
+	print("(Introduce a number)\n");
 	print("1. English\n");
 	print("X. New\n");
 	ft_read(input, 2);

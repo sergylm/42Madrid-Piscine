@@ -14,6 +14,7 @@
 # define LIB_H
 # include <unistd.h>
 # include <stdlib.h>
+#include <stdio.h>
 
 // russh02.c
 void	start(const char *path);
@@ -35,7 +36,13 @@ typedef struct t_dict {
 
 T_dict_ptr	dict_new(void);
 
-void	dict_free(T_dict dict);
+void	dict_free(T_dict_ptr dict);
+
+int	dict_find_index(T_dict_ptr dict, const char *key);
+
+void	dict_add(T_dict_ptr dict, const char* key, char *value);
+
+void	dict_load(T_dict_ptr dict, char *buffer);
 
 // print.c
 void	print(char *str);
@@ -46,5 +53,13 @@ void	ft_read(char *str, int size);
 
 // aux.c
 int		length(char *str);
+
+int	ft_strcmp(const char *s1, const char *s2);
+
+char *ft_strdup(const char *str);
+
+char *parse_str(char *buffer, int size);
+
+int	file_length(int fd);
 
 #endif

@@ -18,4 +18,5 @@ int	check_number(char *str)
 			return (0);
 		str++;
 	}
+	return (1);
 }
