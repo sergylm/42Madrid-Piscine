@@ -77,7 +77,7 @@ void	dict_load(T_dict_ptr dict, char *buffer)
 	
 	nkey = 0;
 	nvalue = 0;
-	while (*buffer != '\032')
+	while (*buffer)
 	{
 		key = buffer;
 		while (*buffer++ != ':')
@@ -92,7 +92,6 @@ void	dict_load(T_dict_ptr dict, char *buffer)
 		while (*buffer++ != '\n')
 			nvalue++;
 		dict_add(dict, (const char *) parse_str(key, nkey), parse_str(value, nvalue));
-		printf("%.*s:%.*s\n", nkey, key, nvalue, value);
 		nkey = 0;
 		nvalue = 0;
 	}
