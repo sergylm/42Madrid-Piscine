@@ -12,18 +12,33 @@
 
 #include "lib.h"
 
-void	start(const char *path)
+void	start(const char *path, char *value)
 {
 	int		fd;
 	char	buffer[1000];
 	T_dict_ptr	dict;
 	int	i;
 
+	if (!check_number(value))
+	{
+		print("Error\n");
+		return ;
+	}
 	i = 0;
 	dict = dict_new();
 	fd = open_file(path);
+	if (fd == -1)
+	{
+		print("Dict Error\n");
+		return ;
+	}
 	read(fd, &buffer, 1000);
-	dict_load(dict, buffer);
+	if (!dict_load(dict, buffer))
+	{
+		print("Dict Error\n");
+		dict_free(dict);
+		return ;
+	}
 	while (i < dict->len)
 	{
 		print((char *) dict->entry[i].key);
@@ -34,3 +49,4 @@ void	start(const char *path)
 	}
 	dict_free(dict);
 }
+

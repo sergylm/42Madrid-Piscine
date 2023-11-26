@@ -12,12 +12,13 @@
 
 #ifndef LIB_H
 # define LIB_H
+# define ENGLISH "numbers.dict"
 # include <unistd.h>
 # include <stdlib.h>
 #include <stdio.h>
 
-// russh02.c
-void	start(const char *path);
+// rush02.c
+void	start(const char *path, char *str);
 
 // file.c
 int		open_file(const char *path);
@@ -42,7 +43,7 @@ int	dict_find_index(T_dict_ptr dict, const char *key);
 
 void	dict_add(T_dict_ptr dict, const char* key, char *value);
 
-void	dict_load(T_dict_ptr dict, char *buffer);
+int	dict_load(T_dict_ptr dict, char *buffer);
 
 // print.c
 void	print(char *str);
@@ -50,6 +51,9 @@ void	print(char *str);
 void	print_chr(char chr);
 
 void	ft_read(char *str, int size);
+
+// check.c
+int	check_number(char *str);
 
 // aux.c
 int		length(char *str);

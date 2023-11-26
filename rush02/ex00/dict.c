@@ -68,7 +68,7 @@ void	dict_add(T_dict_ptr dict, const char* key, char *value)
 	dict->len++;
 }
 
-void	dict_load(T_dict_ptr dict, char *buffer)
+int	dict_load(T_dict_ptr dict, char *buffer)
 {
 	char	*key;
 	char	*value;
@@ -91,9 +91,11 @@ void	dict_load(T_dict_ptr dict, char *buffer)
 		value = buffer;
 		while (*buffer++ != '\n')
 			nvalue++;
+		if (!check_number(parse_str(key, nkey)))
+			return (0);
 		dict_add(dict, (const char *) parse_str(key, nkey), parse_str(value, nvalue));
 		nkey = 0;
 		nvalue = 0;
 	}
-	printf("a");
+	return (1);
 }

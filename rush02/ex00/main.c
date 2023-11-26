@@ -12,12 +12,18 @@
 
 #include "lib.h"
 
-void	options(char option)
+void	options(char option, char *str)
 {
+	char	value[38];
+	
+	print("Introduce a number");
+	ft_read(value, sizeof value);
 	if (option == '1')
-		start("numbers.dict");
+		start(ENGLISH, value);
 	else if (option == '2')
 		print("jooer\n");
+	else if (option == 'X' || option == 'x')
+		start(str, value);
 }
 
 void	ft_select(void)
@@ -39,11 +45,12 @@ void	ft_select(void)
 	{
 		print("Introduce the path to the new dictionary: ");
 		ft_read(new_dict, sizeof new_dict);
+		printf("Dictionary: ");
 		print(new_dict);
 	}
 	else
 	{
-		options(input[0]);
+		options(input[0], 0);
 	}
 }
 
@@ -55,12 +62,11 @@ int	main(int argc, char **argv)
 	}
 	else if (argc == 2)
 	{
-		print(argv[1]);
+		start(ENGLISH, argv[1]);
 	}
 	else if (argc == 3)
 	{
-		print(argv[1]);
-		print(argv[2]);
+		start(argv[1], argv[2]);
 	}
 	else
 	{
