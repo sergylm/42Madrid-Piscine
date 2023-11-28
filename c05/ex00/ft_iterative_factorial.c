@@ -6,7 +6,7 @@
 /*   By: selopez- <selopez-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 20:14:16 by selopez-          #+#    #+#             */
-/*   Updated: 2023/11/27 20:02:28 by selopez-         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:15:39 by selopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_iterative_factorial(int nb)
 	int	result;
 
 	result = 1;
-	if (nb <= 0)
+	if (nb < 0)
 		return (0);
 	while (nb > 0)
 	{
@@ -27,6 +27,6 @@ int	ft_iterative_factorial(int nb)
 }
 
 //int main(){
-//	int a = 6;
+//	int a = 1;
 //	printf("%i", ft_iterative_factorial(a));
 //}
