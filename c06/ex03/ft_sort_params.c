@@ -6,7 +6,7 @@
 /*   By: selopez- <selopez-@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 20:29:31 by selopez-          #+#    #+#             */
-/*   Updated: 2023/11/27 20:52:56 by selopez-         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:58:11 by selopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,35 @@ int	ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-void	swap(char *s1, char *s2)
+void	swap(int argc, char *argv[])
 {
-	char *tmp;
+	int		i;
+	int		j;
+	char	*temp;
 
-	tmp = 0;
-	if (ft_strcmp(s1, s2) > 0)
+	i = 0;
+	while (i < argc)
 	{
-		*tmp = *s1;
-		*s1 = *s2;
-		*s2 = *tmp;
+		j = 1;
+		while (j < (argc - i - 1))
+		{
+			if (ft_strcmp(argv[j], argv[j + 1]) > 0)
+			{
+				temp = argv[j];
+				argv[j] = argv[j + 1];
+				argv[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
 	int	i;
-	int	j;
 
-	i = 1;
-	j = argc - 1;
-	while (i < j)
-	{
-		while (i < j)
-		{
-			swap(argv[i], argv[j]);
-			write(1, "aaa\n", 1);
-			i++;
-		}
-		j--;
-		i = 1;
-	}
+	swap(argc, argv);
 	i = 1;
 	while (i < argc)
 	{
