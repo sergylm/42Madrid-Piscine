@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
 	int	cap;
 
-	*range = 0;
 	if (min >= max)
 		return (0);
 	i = 0;
@@ -27,29 +26,27 @@ int	ft_ultimate_range(int **range, int min, int max)
 		cap = max + min * -1;
 	else
 		cap = max - min;
-	*range = malloc(cap * sizeof(int));
+	*range = (int *)malloc(cap * sizeof(int));
 	if (!*range)
 		return (-1);
-	while (min < max)
-	{
-		printf("a\n");
-		printf("%d-", min);
-		*range[i] = min;
-		i++;
-		min++;
-	}
+	while (min++ < max)
+		(*range)[i++] = min - 1;
 	return (i);
 }
-
-int main(){
-	int *array;
-	int	size;
-	
-	size = ft_ultimate_range(&array, 0, 10); 
-//	while (*array)
+//
+//int main(){
+//	int *array;
+//	int	size;
+//	int	i;
+//	int	min = 4;
+//	int	max = 10;
+//	
+//	size = ft_ultimate_range(&array, min, max);
+//	i = 0;
+//	while (min < max)
 //	{
-//		printf("%d", *array);
-//		array++;
+//		printf("%d", array[i++]);
+//		min++;
 //	}
-	printf("\n%d", size);
-}
+//	printf("\n%d", size);
+//}
